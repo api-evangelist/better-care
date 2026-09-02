@@ -1,23 +1,135 @@
 aid: better-care
 name: Better
-description: 'Better is a company surfaced via the API Evangelist harvest backlog (source: openehr-coalition)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Better (formerly Marand, Ljubljana, Slovenia) is a digital-health vendor whose products are built
+  on openEHR, the open standard for vendor-neutral, computable clinical data. Better Platform is an
+  openEHR-compliant clinical data repository (CDR) and operational data repository that exposes the
+  openEHR ITS-REST API together with AQL (Archetype Query Language) for querying stored compositions.
+  Better Studio is the low-code environment used to build clinical forms, AQL queries, JavaScript
+  views, ETL pipelines and data connectors against that platform; Better Meds is an ePMA for
+  medication management; Better Design System and the Better Marketplace supply reusable widgets,
+  forms and bundles. Better publishes its core openEHR reference libraries — web-template, ehr-common
+  and the openEHR REST conformance test suite — as Apache-2.0 open source on GitHub and Maven Central,
+  but the Better Platform API reference itself is served behind Microsoft Entra single sign-on.
 url: https://raw.githubusercontent.com/api-evangelist/better-care/refs/heads/main/apis.yml
+image: https://www.better.care/wp-content/uploads/2024/01/Better-Logo-Blue-Icon.svg
 x-type: company
 x-source: harvest:openehr-coalition
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-09-02'
 modified: '2026-09-02'
 tags:
 - Company
-apis: []
+- Health
+- Healthcare
+- openEHR
+- Electronic Health Records
+- Clinical Data
+- Interoperability
+- HL7 FHIR
+- Medication Management
+- Digital Health
+- Low Code
+- AQL
+- Slovenia
+apis:
+- name: Better Platform openEHR REST API
+  description: >-
+    Better Platform's clinical data repository exposes the openEHR ITS-REST API (EHR, COMPOSITION,
+    DIRECTORY, CONTRIBUTION, TEMPLATE/definition and QUERY/AQL resources) plus Better's own
+    web-template and simplified-JSON extensions. Better publishes an Apache-2.0 conformance test
+    suite (care.better.platform.test:openehr-rest-tests) that exercises the specification's
+    OPTIONS conformance call and basic authentication against a deployed server. The reference
+    documentation is served behind Microsoft Entra single sign-on and no OpenAPI is published.
+  humanURL: https://docs.better.care/platform/
+  x-base-url-status: >-
+    No public base URL. Better Platform is deployed per customer (private cloud or on-premise), so
+    the openEHR REST endpoint is tenant-specific; the openehr-rest-tests suite requires the
+    integrator to supply `openehr.rest.uri` themselves. No host was guessed.
+  tags:
+  - openEHR
+  - Clinical Data Repository
+  - Health
+  properties:
+  - type: Conformance
+    url: conformance/better-care-conformance.yml
+  - type: Authentication
+    url: authentication/better-care-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/better-care-domain-security.yml
 - type: Website
   url: https://www.better.care/
+- type: Documentation
+  url: https://docs.better.care/studio/
+- type: GettingStarted
+  url: https://docs.better.care/studio/start-here/studio-setup
+- type: Support
+  url: https://docs.better.care/studio/welcome/resources-and-community
+- type: Blog
+  url: https://www.better.care/category/blog-en/
+- type: GitHubOrganization
+  url: https://github.com/better-care
+- type: SignUp
+  url: https://studio.better.care/registration
+- type: PrivacyPolicy
+  url: https://www.better.care/privacy-cookies/
+- type: Compliance
+  url: https://www.better.care/certifications/
+- type: ChangeLog
+  url: https://docs.better.care/studio/release-notes/release-3-17
+- type: ChangeLog
+  name: Better Studio release notes (structured)
+  url: changelog/better-care-changelog.yml
+- type: Packages
+  url: packages/better-care-packages.yml
+- type: SDKs
+  url: packages/better-care-packages.yml
+- type: LLMsTxt
+  url: llms/better-care-llms.txt
+- type: LLMsTxt
+  name: Better Marketplace llms.txt
+  url: llms/better-care-marketplace-llms.txt
+- type: Conformance
+  url: conformance/better-care-conformance.yml
+- type: Authentication
+  url: authentication/better-care-authentication.yml
+- type: Lifecycle
+  url: lifecycle/better-care-lifecycle.yml
+- type: Deprecation
+  url: https://docs.better.care/studio/release-notes/release-3-17
+- type: Components
+  url: components/better-care-components.yml
+- type: Conventions
+  url: conventions/better-care-conventions.yml
+- type: Plans
+  url: plans/better-care-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/better-care-rate-limits.yml
+x-enrichment:
+  date: '2026-09-02'
+  status: enriched
+  artifacts_added: 14
+  pass: local-v1
+x-coverage:
+  state: covered
+  reason: covered
+  detail: >-
+    Better's public surface was profiled successfully (14 first-party packages, two verbatim
+    llms.txt files, a dated Better Studio changelog, four published ISO certifications and the
+    openEHR component estate), but its own API reference is not public - docs.better.care/platform,
+    /meds and /bds all 302 to a Microsoft Entra SAML sign-on, and no OpenAPI, GraphQL SDL,
+    AsyncAPI, WSDL or .proto exists on any Better host or in its 19-repo GitHub organization.
+  evidence:
+  - url: https://docs.better.care/platform/
+    status: 302
+  - url: https://docs.better.care/studio/
+    status: 200
+  - url: https://www.better.care/certifications/
+    status: 200
+  checked: '2026-09-02'

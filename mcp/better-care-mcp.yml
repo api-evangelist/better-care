@@ -1,0 +1,26 @@
+generated: '2026-09-02'
+method: searched
+status: none
+source: >-
+  Searched Better's public documentation (docs.better.care/studio, marketplace.better.care,
+  hive.better.care), the github.com/better-care organization (19 public repositories), npm
+  (@bettercare scope) and Maven Central (care.better.*), and probed mcp.better.care and
+  /.well-known/ paths on every Better host. Probed 2026-09-02.
+note: >-
+  Better publishes no MCP server, hosted or local. Nothing in its GitHub org, package registries
+  or public docs mentions the Model Context Protocol. mcp.better.care does not resolve. No
+  candidate tool list could be derived either, because Better publishes no OpenAPI to derive one
+  from. NO `MCPServer` pointer is wired in apis.yml - the pointer asserts the provider ships a
+  server, and Better does not.
+deployment:
+  mode: none
+  endpoint: null
+  install: null
+  package: null
+  auth: unknown
+  verified: searched
+tools: []
+evidence:
+- {url: 'https://mcp.better.care/', status: '<no response> (DNS does not resolve)'}
+- {url: 'https://github.com/better-care', status: 200, finding: 19 public repos, none MCP-related}
+- {url: 'https://registry.npmjs.org/-/v1/search?text=%40bettercare', status: 200, finding: '2 packages, neither an MCP server'}

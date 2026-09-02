@@ -1,0 +1,149 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  https://www.better.care/certifications/ ; https://github.com/better-care ;
+  https://github.com/better-care/openehr-rest-tests ; Maven Central group care.better.platform
+contract_evidence: false
+contract_evidence_note: >-
+  Better publishes no OpenAPI, GraphQL SDL, AsyncAPI or WSDL, and its Better Platform API
+  reference is behind Microsoft Entra SAML. Every entry below is therefore evidenced from
+  Better's own PUBLISHED SOURCE CODE and certification page rather than from a machine-readable
+  contract we could parse. Scored accordingly: presence of the standard is well evidenced,
+  conformance depth is not independently verifiable.
+domain_standard:
+  market: healthcare / electronic health records
+  standard: openEHR
+  conforms: true
+  confidence: high
+  evidence: >-
+    Better's whole product line is an openEHR implementation. It publishes, Apache-2.0, a
+    WebTemplate implementation for an openEHR CDR (care.better.platform:web-template 4.1.1,
+    2025-05-30), the openEHR common components ehr-common / ehr-common-model /
+    ehr-common-amnode / ehr-common-path / ehr-common-terminology / ehr-common-time (all 4.1.1),
+    and an openEHR REST integration-test suite (github.com/better-care/openehr-rest-tests) whose
+    README configures `openehr.conformance` for the openEHR ITS-REST Release-1.0.0 OPTIONS
+    conformance call. The certifications page names openEHR as the clinical-data framework.
+  evidence_urls:
+  - https://github.com/better-care/web-template
+  - https://github.com/better-care/ehr-common
+  - https://github.com/better-care/openehr-rest-tests
+  - https://www.better.care/certifications/
+  spec_reference: https://specifications.openehr.org/releases/ITS-REST/Release-1.0.0/ehr.html
+standards:
+- id: openehr-its-rest
+  name: openEHR ITS-REST 1.0.0
+  conforms: true
+  confidence: high
+  evidence: >-
+    github.com/better-care/openehr-rest-tests is Better's own Apache-2.0 conformance/integration
+    suite for the openEHR REST API; its configuration exposes `openehr.rest.uri`,
+    `auth.basic.username`/`auth.basic.password` and `openehr.conformance`, the last documented
+    against the ITS-REST 1.0.0 "OPTIONS and conformance" design consideration.
+  evidence_url: https://github.com/better-care/openehr-rest-tests
+- id: openehr-aql
+  name: openEHR Archetype Query Language (AQL)
+  conforms: true
+  confidence: high
+  evidence: >-
+    Better Studio ships an AQL builder and query assistant as first-class public documentation
+    (docs.better.care/studio/connect-in-studio/aql-builder-overview), Better publishes an AQL
+    plugin for IntelliJ IDEA (github.com/better-care/aql-idea-plugin) and an AQL result-table
+    UI library (@bettercare/aql-result-table on npm, github.com/better-care/better-ui-components).
+  evidence_url: https://docs.better.care/studio/connect-in-studio/aql-builder-overview
+- id: openehr-archetype-model
+  name: openEHR Archetype Model / Operational Templates
+  conforms: true
+  confidence: high
+  evidence: >-
+    care.better.platform:ehr-common-amnode and ehr-common-model (4.1.1, 2025-05-30) implement the
+    openEHR archetype/reference model; web-template renders operational templates into Better's
+    WebTemplate form.
+  evidence_url: https://central.sonatype.com/artifact/care.better.platform/web-template
+- id: hl7-fhir
+  name: HL7 FHIR
+  conforms: partial
+  confidence: medium
+  evidence: >-
+    The certifications page names HL7 FHIR as the operational/interoperability data framework
+    alongside openEHR, and Better published github.com/better-care/fhir-connect-mapping-spec
+    (Apache-2.0, an openEHR<->FHIR mapping specification) plus a fork of HAPI FHIR. The
+    fhir-connect-mapping-spec repository is now ARCHIVED (2026-03-08), so the mapping
+    specification is no longer actively maintained in the open.
+  evidence_url: https://github.com/better-care/fhir-connect-mapping-spec
+- id: iso-9001
+  name: ISO 9001 (quality management)
+  conforms: true
+  confidence: high
+  evidence: Published on the Better certifications page; certification body SIQ.
+  evidence_url: https://www.better.care/certifications/
+- id: iso-iec-27001
+  name: ISO/IEC 27001 (information security management)
+  conforms: true
+  confidence: high
+  evidence: Published on the Better certifications page; certification body SIQ.
+  evidence_url: https://www.better.care/certifications/
+- id: iso-14001
+  name: ISO 14001 (environmental management)
+  conforms: true
+  confidence: high
+  evidence: Published on the Better certifications page; certification body SIQ.
+  evidence_url: https://www.better.care/certifications/
+- id: iso-iec-20000-1-2018
+  name: ISO/IEC 20000-1:2018 (IT service management)
+  conforms: true
+  confidence: high
+  evidence: >-
+    Published on the Better certifications page; audited by TAYLLORCOX GCS for the Better Meds
+    Medication Management Service.
+  evidence_url: https://www.better.care/certifications/
+- id: gdpr
+  name: GDPR
+  conforms: unknown
+  confidence: low
+  evidence: >-
+    Better is EU-established (Ljubljana, Slovenia) and publishes a privacy and cookies notice,
+    but no GDPR/DPA compliance statement was found on a public page.
+  evidence_url: https://www.better.care/privacy-cookies/
+- id: soc2
+  name: SOC 2
+  conforms: false
+  evidence: Not named on the certifications page.
+- id: hipaa
+  name: HIPAA
+  conforms: false
+  evidence: Not named on the certifications page; Better's disclosed deployments are UK/EU/Nordic.
+- id: oauth2
+  name: OAuth 2.0
+  conforms: unknown
+  evidence: >-
+    No public API reference and no /.well-known/oauth-authorization-server on any Better host
+    (all probes recorded in well-known/better-care-well-known.yml). Better's own openEHR REST
+    test suite configures HTTP Basic; Better Studio data connectors offer None / Basic / Bearer /
+    EHR Platform credentials. OAuth 2.0 could neither be confirmed nor ruled out.
+- id: rfc9457-problem-details
+  name: RFC 9457 Problem Details
+  conforms: unknown
+  evidence: No published contract or error reference to read.
+contract_discovery:
+  date: '2026-09-02'
+  result: no machine-readable contract published
+  hosts_probed: [www.better.care, docs.better.care, tools.better.care, studio.better.care, marketplace.better.care, hive.better.care, support.better.care]
+  paths_probed: [/openapi.json, /openapi.yaml, /swagger.json, /v1/openapi.json, /api-docs, /docs, /graphql, /asyncapi.yaml, /asyncapi.json, '/?wsdl', '/?singleWsdl', /.well-known/agent-card.json, /.well-known/agent.json]
+  findings:
+  - >-
+    Every 200 on www.better.care, docs.better.care, tools.better.care and studio.better.care is a
+    catch-all HTML body (proved with a random negative-control path on each host); no candidate
+    parsed as OpenAPI/Swagger. marketplace.better.care and hive.better.care returned honest 404s.
+  - >-
+    api.better.care, developer.better.care, developers.better.care, platform.better.care and
+    mcp.better.care do not resolve or do not answer.
+  - >-
+    GitHub code search across org:better-care for filename:openapi, filename:swagger,
+    filename:asyncapi and extension:proto returned 0 results across 19 public repositories.
+  - >-
+    No published .proto on buf.build (buf.build/better-care returns the registry SPA, not an org
+    page) and no WSDL on any host.
+  - >-
+    The Better Platform / Better Meds / Better Design System documentation trees at
+    docs.better.care 302 to login.microsoftonline.com SAML (Microsoft Entra tenant
+    910f2764-a2db-4c62-88c4-a5e70c3365c4). Only /studio/ and /guides/ are public.

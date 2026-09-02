@@ -1,0 +1,19 @@
+generated: '2026-09-02'
+method: searched
+source: https://www.better.care/
+plan_count: 0
+currency: null
+note: >-
+  Better publishes no pricing. Its WordPress page sitemap (https://www.better.care/page-sitemap.xml,
+  119 URLs, fetched 2026-09-02) contains no /pricing/ page, and every product page - Better Platform,
+  Better Studio, Better Meds, Care Coordination, PROMs, Shared Care Record - terminates in a
+  "Request a demo" form rather than a tier list. https://www.better.care/pricing/ returns HTTP 200
+  with the homepage (the site answers 200 for every unknown path), which is a soft 404, not a
+  pricing page. Better Studio has a self-service registration at
+  https://studio.better.care/registration but the sign-up page publishes no price. Enterprise
+  contract-only.
+plans: []
+evidence:
+- {url: 'https://www.better.care/page-sitemap.xml', status: 200, finding: no pricing page listed}
+- {url: 'https://www.better.care/request-a-demo/', status: 200, finding: demo-request form is the commercial entry point}
+- {url: 'https://studio.better.care/registration', status: 200, finding: self-service Studio registration, no published price}

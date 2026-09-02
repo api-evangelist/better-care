@@ -1,0 +1,105 @@
+generated: '2026-09-02'
+method: probed
+source: live GET of each named /.well-known/ path on every Better host, 2026-09-02
+hit_count: 0
+summary: >-
+  Better serves NO /.well-known/ discovery document on any of its hosts. Three of the four
+  hosts probed are catch-alls that answer HTTP 200 with an HTML page for every path,
+  including a random path that cannot exist — so none of their 200s is a document.
+  marketplace.better.care and hive.better.care return honest 404s, and support.better.care
+  (Zendesk, restricted help centre) returns 403 to an anonymous client. No WellKnown and no
+  SecurityTxt pointer is emitted: this file records an absence, not a presence.
+path_echo_control: passed
+soft_404_control:
+  note: >-
+    Negative controls were issued to /.well-known/better-care-negative-control-7f3ab91c.json
+    (and a -negctl- variant). www.better.care, docs.better.care and tools.better.care all
+    answered 200 with the same byte-identical HTML they serve for every other path, so every
+    200 recorded below on those hosts is a catch-all, not a document.
+  controls:
+  - host: www.better.care
+    path: /.well-known/better-care-negative-control-7f3ab91c.json
+    status: 200
+    bytes: 384813
+    verdict: catch-all
+  - host: docs.better.care
+    path: /.well-known/better-care-negctl-7f3ab91c.json
+    status: 200
+    bytes: 454
+    verdict: catch-all (Apache "Redirect Notice" stub served for every path)
+  - host: tools.better.care
+    path: /.well-known/better-care-negctl-7f3ab91c.json
+    status: 200
+    bytes: 118617
+    verdict: catch-all (Docusaurus SPA shell)
+  - host: marketplace.better.care
+    path: /.well-known/better-care-negctl-7f3ab91c.json
+    status: 404
+    verdict: honest 404
+hosts:
+- host: https://www.better.care
+  note: WordPress; every unknown path returns the homepage with HTTP 200. No document served.
+  documents:
+  - {path: /.well-known/security.txt, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/openid-configuration, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/oauth-authorization-server, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/oauth-protected-resource, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/api-catalog, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/ai-plugin.json, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/aauth-resource.json, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/agent-card.json, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/agent.json, status: 200, file: null, verdict: catch-all-html}
+- host: https://docs.better.care
+  note: >-
+    Apache serving a 454-byte "Redirect Notice" stub for every path. Real documentation lives
+    under /studio/ and /guides/; /platform/, /meds/ and /bds/ redirect to Microsoft Entra SAML.
+  documents:
+  - {path: /.well-known/security.txt, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/openid-configuration, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/oauth-authorization-server, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/api-catalog, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/ai-plugin.json, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/agent-card.json, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/agent.json, status: 200, file: null, verdict: catch-all-html}
+- host: https://tools.better.care
+  note: Docusaurus SPA; serves the 118,617-byte app shell with HTTP 200 for every path.
+  documents:
+  - {path: /.well-known/security.txt, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/openid-configuration, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/oauth-authorization-server, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/api-catalog, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/ai-plugin.json, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/agent-card.json, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/agent.json, status: 200, file: null, verdict: catch-all-html}
+- host: https://marketplace.better.care
+  note: Nuxt app with honest 404s. No /.well-known/ document served.
+  documents:
+  - {path: /.well-known/security.txt, status: 404, file: null}
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/agent-card.json, status: 404, file: null}
+  - {path: /.well-known/agent.json, status: 404, file: null}
+- host: https://hive.better.care
+  note: Learning platform; honest 404s.
+  documents:
+  - {path: /.well-known/security.txt, status: 404, file: null}
+  - {path: /.well-known/openid-configuration, status: 404, file: null}
+  - {path: /.well-known/oauth-authorization-server, status: 404, file: null}
+  - {path: /.well-known/api-catalog, status: 404, file: null}
+  - {path: /.well-known/ai-plugin.json, status: 404, file: null}
+  - {path: /.well-known/agent-card.json, status: 404, file: null}
+  - {path: /.well-known/agent.json, status: 404, file: null}
+- host: https://support.better.care
+  note: Zendesk help centre configured as restricted; anonymous requests get 403 on every path.
+  documents:
+  - {path: /.well-known/security.txt, status: 403, file: null}
+  - {path: /.well-known/agent-card.json, status: 403, file: null}
+  - {path: /.well-known/agent.json, status: 403, file: null}
+- host: https://studio.better.care
+  note: SPA shell served with 200 for every path (byte-identical to tools.better.care).
+  documents:
+  - {path: /.well-known/security.txt, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/agent-card.json, status: 200, file: null, verdict: catch-all-html}
+  - {path: /.well-known/agent.json, status: 200, file: null, verdict: catch-all-html}

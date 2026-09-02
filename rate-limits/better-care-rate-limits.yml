@@ -1,0 +1,17 @@
+generated: '2026-09-02'
+method: searched
+source: https://docs.better.care/studio/
+limit_count: 0
+note: >-
+  No rate limits are published. Better Platform's openEHR REST API reference is behind Microsoft
+  Entra SAML sign-on, so no documented quota, window, burst allowance, 429 behaviour or
+  RateLimit-*/Retry-After response header could be read. The public Better Studio documentation
+  covers form building and data connectors and states no limits. Nothing was observed on a live
+  response either: Better Platform is deployed per customer and exposes no public endpoint to
+  probe. An honest zero, not an assumption that limits do not exist.
+limits: []
+response_headers: []
+exhaustion_status: null
+evidence:
+- {url: 'https://docs.better.care/platform/', status: 200, finding: redirects to login.microsoftonline.com SAML - reference not publicly readable}
+- {url: 'https://docs.better.care/studio/', status: 200, finding: public Studio docs, no rate-limit section}

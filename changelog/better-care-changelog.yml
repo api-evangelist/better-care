@@ -1,0 +1,98 @@
+generated: '2026-09-02'
+method: searched
+source: https://docs.better.care/studio/release-notes/release-3-17
+docs: https://docs.better.care/studio/release-notes/older-releases
+product: Better Studio
+note: >-
+  Better publishes a dated, per-release changelog for Better Studio on its public Docusaurus
+  documentation site. There is NO public changelog for Better Platform, Better Meds or the
+  openEHR REST API — those documentation trees redirect to Microsoft Entra SAML sign-on. Each
+  Studio release is pinned to a matching Form Renderer version. Recent window only; the full
+  history is on the provider's own site.
+scheme: semver-major-minor-patch
+current_version: 3.17.8
+current_version_date: '2026-08-25'
+release_cadence: >-
+  Roughly a minor release every 4-8 weeks with frequent patch releases; four minor lines
+  (3.14, 3.15, 3.16, 3.17) were receiving patches concurrently as of 2026-08.
+entries:
+- version: 3.17.0
+  date: '2026-07-08'
+  compatible_form_renderer: 3.17.0
+  breaking: true
+  highlights:
+  - AQL builder AI assistant renamed/upgraded to "Bea"; it can now combine queries into a JS View and return JavaScript instead of a single AQL query.
+  - New organisation-level structure grouping projects and users, letting organisation admins manage access instead of routing every change through Studio support.
+  - Users can propose new Marketplace resources directly from Studio.
+  breaking_note: >-
+    Some straightforward queries that previously produced a single AQL block now generate a
+    JS View; logic relying on a single AQL block must be re-verified.
+  patches:
+  - {version: 3.17.1, date: '2026-07-16'}
+  - {version: 3.17.2, date: '2026-07-20'}
+  - {version: 3.17.3, date: '2026-07-20'}
+  - {version: 3.17.4, date: '2026-07-24'}
+  - {version: 3.17.5, date: '2026-08-04'}
+  - {version: 3.17.6, date: '2026-08-10'}
+  - {version: 3.17.7, date: '2026-08-18'}
+  - {version: 3.17.8, date: '2026-08-25'}
+- version: 3.16.0
+  date: '2026-05-26'
+  compatible_form_renderer: 3.16.0
+  breaking: false
+  highlights:
+  - Two improvements to the ETL (extract, transform, load) module introduced in 3.15.
+  patches:
+  - {version: 3.16.1, date: '2026-05-28'}
+  - {version: 3.16.2, date: '2026-06-04'}
+  - {version: 3.16.3, date: '2026-06-09'}
+  - {version: 3.16.4, date: '2026-06-23'}
+  - {version: 3.16.5, date: '2026-06-24'}
+  - {version: 3.16.6, date: '2026-07-13'}
+  - {version: 3.16.7, date: '2026-07-13'}
+- version: 3.15.0
+  date: '2026-04-21'
+  compatible_form_renderer: 3.15.0
+  breaking: false
+  highlights:
+  - New ETL data-integration tool (phase 1 - core pipeline workflow).
+  - Redesigned navigation.
+  - Two-factor authentication.
+  - New BDS-based rendering engine.
+  - Grid layout in Form builder.
+  - Completely rebuilt documentation site.
+  patches:
+  - {version: 3.15.1, date: '2026-04-23'}
+  - {version: 3.15.2, date: '2026-05-06'}
+  - {version: 3.15.3, date: '2026-05-15'}
+  - {version: 3.15.4, date: '2026-05-26'}
+  - {version: 3.15.5, date: '2026-06-03'}
+  - {version: 3.15.6, date: '2026-07-06'}
+  - {version: 3.15.7, date: '2026-07-10'}
+  - {version: 3.15.8, date: '2026-08-05'}
+- version: 3.14.0
+  date: '2025-12-10'
+  compatible_form_renderer: 3.14.0
+  breaking: false
+  highlights:
+  - Refined version switcher; simpler project setup and more control over data and Studio versions.
+  patches:
+  - {version: 3.14.1, date: '2025-12-22'}
+  - {version: 3.14.12, date: '2026-06-04'}
+  patch_range: 3.14.1 - 3.14.12 (2025-12-22 to 2026-06-04)
+- version: 3.13.0
+  date: '2025-09-23'
+  compatible_form_renderer: 3.13.0
+  breaking: false
+  end_of_support: true
+  highlights:
+  - Data Connectors introduced as an upgraded replacement for the API Connectors functionality.
+  patch_range: 3.13.1 - 3.13.12 (2025-09-25 to 2026-04-23)
+- version: 3.12.0
+  date: '2025-06-10'
+  compatible_form_renderer: 3.12.0
+  breaking: false
+  end_of_support: true
+  highlights:
+  - Form-building improvements; warning when saving a form or summary under the same name at a different version.
+  patch_range: 3.12.1 - 3.12.13 (2025-06-12 to 2026-02-10)

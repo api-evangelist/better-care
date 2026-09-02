@@ -1,0 +1,48 @@
+generated: '2026-09-02'
+method: searched
+source: https://docs.better.care/studio/release-notes/release-3-17
+versioning:
+  scheme: semver-major-minor-patch
+  current: 3.17.8
+  docs: https://docs.better.care/studio/start-here/studio-version
+  note: >-
+    Applies to Better Studio, the only Better product with a public release-notes tree. Each
+    Studio release is pinned to a matching Form Renderer version (Studio 3.17.0 <-> Form
+    Renderer 3.17.0). Better Platform and Better Meds version publicly only through marketing
+    release pages; their documentation is behind Microsoft Entra SAML.
+deprecation:
+  policy_url: https://docs.better.care/studio/release-notes/release-3-17
+  policy_stated: true
+  window: >-
+    "We continue to support a year's worth of Studio releases" - as of the 3.17 notes the
+    supported set is 3.14, 3.15, 3.16 and 3.17; "Studio 3.13 and earlier versions are no longer
+    supported, for both cloud-based and on-premise Studio setups. These versions no longer
+    receive updates, security patches, or support."
+  notification_mechanism: >-
+    Permanent in-product dashboard notifications when a new major or minor version is available
+    or when support for the running version is about to expire
+    (https://docs.better.care/studio/start-here/studio-version).
+  sunset_header: unknown
+  note: >-
+    RFC 8594 Sunset/Deprecation header support could not be determined - Better Platform has no
+    public endpoint to observe and no public API reference to read.
+  end_of_support:
+  - {version: '3.13', status: unsupported}
+  - {version: '3.12', status: unsupported}
+  supported:
+  - '3.14'
+  - '3.15'
+  - '3.16'
+  - '3.17'
+sla:
+  url: null
+  uptime_target: null
+  note: No public SLA or uptime commitment was found; terms are negotiated per customer contract.
+status_page: null
+status_page_note: >-
+  No public status page. better.statuspage.io and betterplatform.statuspage.io both resolve but
+  redirect to a Better Okta SAML sign-in (better.okta.com/app/statuspage_saml/...), i.e. the
+  status page exists but is employee/customer-only, not public. No StatusPage pointer is
+  emitted for a page the public cannot read.
+deprecated_operations: []
+deprecated_operations_note: No OpenAPI is published, so no operation-level deprecation could be derived.

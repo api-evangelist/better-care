@@ -1,0 +1,94 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  https://docs.better.care/studio/build-in-studio/connecting-data ;
+  https://docs.better.care/studio/connect-in-studio/script-api ;
+  https://github.com/better-care/openehr-rest-tests
+scope_warning: >-
+  READ THIS BEFORE USING THIS FILE. Better publishes no API reference for its OWN API - the
+  Better Platform documentation tree redirects to Microsoft Entra SAML sign-on and no OpenAPI
+  exists. The cross-cutting semantics of the Better Platform openEHR REST API (pagination,
+  idempotency, error envelope, request tracing, rate-limit signalling, versioning headers)
+  therefore COULD NOT BE READ and are recorded as `unknown`, not inferred from the openEHR
+  specification. What IS captured below is Better's PUBLIC client-side surface: the Data
+  Connector HTTP client and the form Script API, both documented openly for Better Studio.
+api_conventions:
+  authentication:
+    style: http-basic
+    detail: See authentication/better-care-authentication.yml. Confidence medium.
+  idempotency:
+    supported: unknown
+    header: null
+    note: >-
+      No idempotency contract could be read. NO `Idempotency` pointer is emitted in apis.yml -
+      asserting one would credit Better with a guarantee it has not published.
+  pagination:
+    style: unknown
+    note: >-
+      openEHR ITS-REST AQL queries carry offset/fetch semantics in the query itself, but Better's
+      own documented behaviour is not public, so nothing is asserted here.
+  versioning:
+    style: unknown
+    note: >-
+      Better Studio versions on semver (see lifecycle/). The openEHR REST surface's versioning
+      convention (URI path, header, or none) is not publicly documented.
+  error_envelope:
+    shape: unknown
+    problem_json: unknown
+  request_tracing:
+    header: unknown
+  rate_limit_signalling:
+    headers: []
+    note: See rate-limits/better-care-rate-limits.yml - limit_count 0, nothing published.
+  expansion_sparse_fields:
+    supported: unknown
+  metadata:
+    supported: unknown
+reversibility:
+  grade: undocumented
+  applies_to: Better Platform openEHR REST API
+  write_surface: true
+  write_surface_note: >-
+    The API is not read-only: openEHR REST creates and updates EHRs, COMPOSITIONs, DIRECTORYs and
+    CONTRIBUTIONs, so `na` would be wrong. But Better publishes no reversal operation, no
+    operationId and no time window, because it publishes no reference at all.
+  reversal_operations: []
+  windows: []
+  note: >-
+    NO WINDOW IS ASSERTED. Better states none publicly, and inventing one from the openEHR
+    specification would be a claim about Better that Better has not made. To raise this to
+    `documented` or `verified`, Better would need to publish, at a public URL, the reversal
+    operation for each write (delete/void a COMPOSITION, revert a CONTRIBUTION) and the window
+    inside which it works.
+dry_run_mode:
+  supported: unknown
+  note: Better Studio has a form Preview and a Test/validation stage, but that is authoring-time form testing, not an API dry-run.
+client_conventions:
+  note: >-
+    These describe the OUTBOUND HTTP client Better Studio forms use to call third-party APIs
+    (Data Connectors, introduced in Studio 3.13.0 as the successor to API Connectors). They are
+    Better's public, documented semantics - just for the client half, not the server half.
+  source: https://docs.better.care/studio/build-in-studio/connecting-data
+  methods: [GET, POST, PUT, PATCH, DELETE]
+  request_body_types:
+  - {type: json, note: 'JSON objects with <placeholder> token insertion'}
+  - {type: form-data, note: multipart/form-data built from key-value pairs}
+  - {type: x-www-form-urlencoded, note: URL-encoded body from parameters}
+  - {type: file-binary, note: raw file bytes sent unwrapped as the request body}
+  authentication_options: [None, Basic, Bearer, EHR Platform credentials]
+  configuration_fields: [Endpoint URL, HTTP method, Response type, Parameters, Headers]
+  hooks:
+  - {name: pre-request script, language: javascript, note: 'prepares data before the call; has access to `api` and `processor` objects'}
+  - {name: post-response script, language: javascript, note: reshapes the response afterwards}
+  script_api:
+    source: https://docs.better.care/studio/connect-in-studio/script-api
+    reference: https://docs.better.care/studio/advanced/advanced-script-api
+    description: >-
+      Client-side JavaScript methods callable from scripts attached to a form, at trigger points
+      such as field value change, page load and form submission. Distinct from JavaScript Views,
+      which execute on the EHR server to pre-process data.
+cross_links:
+  authentication: authentication/better-care-authentication.yml
+  lifecycle: lifecycle/better-care-lifecycle.yml
+  rate_limits: rate-limits/better-care-rate-limits.yml
+  conformance: conformance/better-care-conformance.yml

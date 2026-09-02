@@ -1,0 +1,31 @@
+Site: Better Marketplace
+Site-URL: https://marketplace.better.care/
+Canonical-Domain: marketplace.better.care
+Primary-Language: en-GB
+
+Summary: Better Marketplace provides healthcare widgets, forms, bundles, and applications for Better Studio and Better Platform workflows.
+
+Preferred-URLs:
+- https://marketplace.better.care/
+- https://marketplace.better.care/Apps/
+- https://marketplace.better.care/StudioMarketplace/
+
+URL-Patterns:
+- https://marketplace.better.care/Apps/{app-slug}-{id}/
+- https://marketplace.better.care/StudioMarketplace/widget/{widget-slug}-{id}/
+- https://marketplace.better.care/StudioMarketplace/form/{form-slug}-{id}/
+- https://marketplace.better.care/StudioMarketplace/bundle/{bundle-slug}-{id}/
+
+Crawl-Policy:
+- Allow: /
+
+Sitemaps:
+- https://marketplace.better.care/sitemap.xml
+
+Canonicalization-Notes:
+- Use HTTPS URLs only.
+- Use trailing-slash canonical URLs.
+- Prefer the production domain (marketplace.better.care).
+
+Contact:
+- https://www.better.care/contact

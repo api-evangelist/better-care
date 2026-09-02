@@ -1,0 +1,67 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  https://github.com/better-care ; https://www.better.care/design-system/ ;
+  https://marketplace.better.care/ ; https://docs.better.care/studio/advanced/widget-development
+note: >-
+  Better ships a substantial client-side component surface - this is the strongest developer
+  artifact it publishes. Three families: a design system (BDS), openEHR-aware Angular libraries,
+  and a widget SDK plus a public marketplace of installable widgets, forms and bundles.
+families:
+- family: Better Design System (BDS)
+  kind: design-system
+  url: https://www.better.care/design-system/
+  docs: https://docs.better.care/bds/
+  docs_status: gated
+  docs_note: docs.better.care/bds/ redirects to Microsoft Entra SAML sign-on.
+  description: >-
+    Components, design tokens and guidelines for consistent, accessible user experiences across
+    Better products. Became the rendering engine behind Better Studio forms in release 3.15.0
+    (2026-04-21).
+  public_repos:
+  - {name: bds-angular-showcase, url: 'https://github.com/better-care/bds-angular-showcase', language: TypeScript}
+  - {name: bds-hive, url: 'https://github.com/better-care/bds-hive', language: TypeScript, note: BDS Hive course source code}
+- family: openEHR Angular UI components
+  kind: framework-libraries
+  url: https://github.com/better-care/better-ui-components
+  license: Apache-2.0
+  description: >-
+    Angular workspace of libraries for adopting openEHR concepts in your own application.
+  loader: npm (source-built; @bettercare/better-ui-components is not published to the registry)
+  components:
+  - {name: aql-builder, description: Archetype Query Language query builder}
+  - {name: aql-result-table, description: Tabular renderer for AQL result sets, published historically as '@bettercare/aql-result-table' 1.0.0 (2021-02-18)}
+  - {name: demo, description: Showcase application}
+- family: Form widgets
+  kind: embeddable-widgets
+  docs: https://docs.better.care/studio/advanced/widget-development
+  description: >-
+    Custom widgets embedded into Better Studio forms. Better publishes starter templates for four
+    frameworks plus a TypeScript typings package, and a public widget specification proposal.
+  typings_package:
+    name: '@bettercare/widget-typings'
+    registry: npm
+    url: https://www.npmjs.com/package/@bettercare/widget-typings
+    version: 1.0.2
+    published: '2025-02-17'
+  templates:
+  - {name: lit-widget-template, framework: Lit, url: 'https://github.com/better-care/lit-widget-template', license: BSD-3-Clause, updated: '2026-04-17'}
+  - {name: react-widget-template, framework: React, url: 'https://github.com/better-care/react-widget-template', updated: '2025-05-12'}
+  - {name: angular-widget-template, framework: Angular, url: 'https://github.com/better-care/angular-widget-template', updated: '2022-01-13'}
+  - {name: svelte-widget-template, framework: Svelte, url: 'https://github.com/better-care/svelte-widget-template', updated: '2021-12-06'}
+  specification: https://github.com/better-care/proposition-for-widget-specification
+- family: Better Marketplace
+  kind: distribution
+  url: https://marketplace.better.care/
+  description: >-
+    Public catalogue of installable healthcare widgets, forms, bundles and applications for
+    Better Studio and Better Platform workflows. Browsable without an account; installation
+    happens inside Studio. From Studio 3.17.0 users can propose new Marketplace resources
+    directly from Studio.
+  docs: https://docs.better.care/studio/marketplace/marketplace-overview
+  url_patterns:
+  - https://marketplace.better.care/Apps/{app-slug}-{id}/
+  - https://marketplace.better.care/StudioMarketplace/widget/{widget-slug}-{id}/
+  - https://marketplace.better.care/StudioMarketplace/form/{form-slug}-{id}/
+  - https://marketplace.better.care/StudioMarketplace/bundle/{bundle-slug}-{id}/
+  url_patterns_source: https://marketplace.better.care/llms.txt

@@ -1,0 +1,179 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  Maven Central (search.maven.org solrsearch, group care.better.*), registry.npmjs.org,
+  and the github.com/better-care organization. Probed 2026-09-02.
+note: >-
+  Better publishes its openEHR reference libraries as Apache-2.0 open source. These are
+  server-side/model libraries and Angular UI libraries rather than a client SDK for a hosted
+  Better API — Better Platform has no public hosted endpoint (it is deployed per customer),
+  so there is no "call our cloud" SDK to find. Registries probed with no first-party result:
+  PyPI, NuGet, pkg.go.dev, RubyGems, Packagist, crates.io.
+registries_probed:
+- registry: maven-central
+  query: 'g:care.better*'
+  result: 13 artifacts
+- registry: npm
+  query: '@bettercare scope'
+  result: 2 packages
+- registry: pypi
+  result: none found
+- registry: nuget
+  result: none found
+- registry: rubygems
+  result: none found
+- registry: crates.io
+  result: none found
+- registry: packagist
+  result: none found
+- registry: pkg.go.dev
+  result: none found
+packages:
+- language: java
+  registry: maven
+  name: care.better.platform:web-template
+  url: https://central.sonatype.com/artifact/care.better.platform/web-template
+  install: 'implementation "care.better.platform:web-template:4.1.1"'
+  official: true
+  version: 4.1.1
+  published: '2025-05-30'
+  source_code: https://github.com/better-care/web-template
+  license: Apache-2.0
+  note: WebTemplate implementation for an openEHR CDR — Better's simplified template/JSON format.
+- language: java
+  registry: maven
+  name: care.better.platform:ehr-common
+  url: https://central.sonatype.com/artifact/care.better.platform/ehr-common
+  install: 'implementation "care.better.platform:ehr-common:4.1.1"'
+  official: true
+  version: 4.1.1
+  published: '2025-05-30'
+  source_code: https://github.com/better-care/ehr-common
+  license: Apache-2.0
+  note: >-
+    Aggregate of the openEHR common components. Sibling modules published at the same
+    version and date — ehr-common-model, ehr-common-amnode, ehr-common-path,
+    ehr-common-terminology, ehr-common-time, ehr-common-utils, ehr-common-json-jackson,
+    ehr-common-xml-jaxb, ehr-common-jacoco.
+- language: java
+  registry: maven
+  name: care.better.platform:ehr-common-model
+  url: https://central.sonatype.com/artifact/care.better.platform/ehr-common-model
+  official: true
+  version: 4.1.1
+  published: '2025-05-30'
+  license: Apache-2.0
+- language: java
+  registry: maven
+  name: care.better.platform:ehr-common-terminology
+  url: https://central.sonatype.com/artifact/care.better.platform/ehr-common-terminology
+  official: true
+  version: 4.1.1
+  published: '2025-05-30'
+  license: Apache-2.0
+- language: java
+  registry: maven
+  name: care.better.platform:ehr-common-path
+  url: https://central.sonatype.com/artifact/care.better.platform/ehr-common-path
+  official: true
+  version: 4.1.1
+  published: '2025-05-30'
+  license: Apache-2.0
+- language: java
+  registry: maven
+  name: care.better.platform:ehr-common-time
+  url: https://central.sonatype.com/artifact/care.better.platform/ehr-common-time
+  official: true
+  version: 4.1.1
+  published: '2025-05-30'
+  license: Apache-2.0
+- language: java
+  registry: maven
+  name: care.better.platform:ehr-common-amnode
+  url: https://central.sonatype.com/artifact/care.better.platform/ehr-common-amnode
+  official: true
+  version: 4.1.1
+  published: '2025-05-30'
+  license: Apache-2.0
+- language: java
+  registry: maven
+  name: care.better.platform:ehr-common-utils
+  url: https://central.sonatype.com/artifact/care.better.platform/ehr-common-utils
+  official: true
+  version: 4.1.1
+  published: '2025-05-30'
+  license: Apache-2.0
+- language: java
+  registry: maven
+  name: care.better.platform:ehr-common-json-jackson
+  url: https://central.sonatype.com/artifact/care.better.platform/ehr-common-json-jackson
+  official: true
+  version: 4.1.1
+  published: '2025-05-30'
+  license: Apache-2.0
+- language: java
+  registry: maven
+  name: care.better.platform:ehr-common-xml-jaxb
+  url: https://central.sonatype.com/artifact/care.better.platform/ehr-common-xml-jaxb
+  official: true
+  version: 4.1.1
+  published: '2025-05-30'
+  license: Apache-2.0
+- language: kotlin
+  registry: maven
+  name: care.better.pf4j:pf4j-kotlin-symbol-processing
+  url: https://central.sonatype.com/artifact/care.better.pf4j/pf4j-kotlin-symbol-processing
+  official: true
+  version: 2.1.21-1.0.2
+  published: '2025-05-23'
+  source_code: https://github.com/better-care/pf4j-kotlin-symbol-processing
+  license: Apache-2.0
+- language: java
+  registry: maven
+  name: care.better.schema:db-schema
+  url: https://central.sonatype.com/artifact/care.better.schema/db-schema
+  official: true
+  version: 3.0.0
+  published: '2024-02-15'
+  source_code: https://github.com/better-care/db-schema
+  license: Apache-2.0
+- language: javascript
+  registry: npm
+  name: '@bettercare/widget-typings'
+  url: https://www.npmjs.com/package/@bettercare/widget-typings
+  install: npm install @bettercare/widget-typings
+  official: true
+  version: 1.0.2
+  published: '2025-02-17'
+  source_code: https://github.com/better-care/proposition-for-widget-specification
+- language: javascript
+  registry: npm
+  name: '@bettercare/aql-result-table'
+  url: https://www.npmjs.com/package/@bettercare/aql-result-table
+  install: npm install @bettercare/aql-result-table
+  official: true
+  version: 1.0.0
+  published: '2021-02-18'
+  note: >-
+    Last published 2021-02-18. The current source for the AQL result table lives in
+    github.com/better-care/better-ui-components (projects/aql-result-table), whose
+    package.json declares @bettercare/better-ui-components 1.0.0 — that name has no
+    npm registry record, so the Angular libraries are consumed from source.
+unpublished_source_libraries:
+- name: '@bettercare/better-ui-components'
+  repo: https://github.com/better-care/better-ui-components
+  projects: [aql-builder, aql-result-table, demo]
+  version: null
+  published: null
+  note: >-
+    Declared in the repo's package.json as @bettercare/better-ui-components 1.0.0 but
+    absent from registry.npmjs.org (checked 2026-09-02) — no registry metadata endpoint
+    to read a version or date from.
+- name: 'care.better.platform.test:openehr-rest-tests'
+  repo: https://github.com/better-care/openehr-rest-tests
+  version: null
+  published: null
+  note: >-
+    The README instructs consumers to depend on care.better.platform.test:openehr-rest-tests
+    at version 1.0-SNAPSHOT; no release is published to Maven Central under that group
+    (checked 2026-09-02), so the conformance suite is built from source.

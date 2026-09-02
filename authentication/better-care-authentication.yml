@@ -1,0 +1,68 @@
+generated: '2026-09-02'
+method: searched
+source: >-
+  https://github.com/better-care/openehr-rest-tests ;
+  https://docs.better.care/studio/build-in-studio/connecting-data ;
+  https://github.com/better-care/better-abac-server ;
+  https://docs.better.care/studio/release-notes/release-3-15
+docs: null
+docs_note: >-
+  Better publishes NO public authentication reference for its own API. The Better Platform
+  documentation tree (https://docs.better.care/platform/) 302s into
+  login.microsoftonline.com SAML, and derive-authentication.py found no securitySchemes because
+  no OpenAPI exists in this repo. Everything below is read from Better's own public source code
+  and public Studio documentation, and is described at that confidence level rather than as a
+  documented contract.
+summary:
+  types: [http]
+  api_key_in: []
+  oauth2_flows: []
+  confidence: medium
+schemes:
+- name: basic
+  type: http
+  scheme: basic
+  applies_to: Better Platform openEHR REST API
+  sources: ['https://github.com/better-care/openehr-rest-tests']
+  evidence: >-
+    Better's own Apache-2.0 openEHR REST integration-test suite configures the server under test
+    with `auth.basic.username` and `auth.basic.password`, documented as "Username for basic auth.
+    If not set, there is no authentication". That is the authentication mode Better itself
+    exercises against a deployed openEHR REST endpoint.
+  confidence: medium
+client_side_connector_auth:
+  note: >-
+    Distinct from Better's OWN API auth. Better Studio Data Connectors (the outbound HTTP client
+    a form uses to call third-party APIs, introduced in Studio 3.13 as the successor to API
+    Connectors) offer four authentication choices, one of which reuses platform credentials.
+  source: https://docs.better.care/studio/build-in-studio/connecting-data
+  options: [None, Basic, Bearer, EHR Platform credentials]
+  methods: [GET, POST, PUT, PATCH, DELETE]
+  body_types: [json, form-data, x-www-form-urlencoded, file/binary]
+authorization:
+  abac:
+    project: Better ABAC Server
+    url: https://github.com/better-care/better-abac-server
+    license: Apache-2.0
+    last_updated: '2024-09-12'
+    note: >-
+      Better publishes an attribute-based access control server as open source; it is the
+      authorization component of a Better deployment. No public policy reference or scope list
+      is published.
+account_security:
+  two_factor_authentication:
+    product: Better Studio
+    since: 3.15.0
+    since_date: '2026-04-21'
+    source: https://docs.better.care/studio/release-notes/release-3-15
+  sso:
+    note: >-
+      Better's own documentation, support and status estates sit behind identity providers -
+      docs.better.care/platform redirects to Microsoft Entra (tenant
+      910f2764-a2db-4c62-88c4-a5e70c3365c4) SAML, and better.statuspage.io redirects to Better's
+      Okta. This is evidence of Better's internal IdP, not of customer-facing API auth.
+not_found:
+- api-key issuance documentation
+- OAuth 2.0 / OpenID Connect discovery documents (probed on every host; see well-known/)
+- scope or permission reference (no scopes/ artifact is written - Better has no documented OAuth surface)
+- mutual TLS documentation
