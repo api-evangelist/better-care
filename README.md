@@ -64,5 +64,105 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Better is a company surfaced via the API Evangelist harvest backlog (source: openehr-coalition) and added to the network as a stub for full-pipeline profiling.
-- https://www.better.care/
+Better (formerly Marand, Ljubljana, Slovenia) is a digital-health vendor whose products are built on openEHR, the open standard for vendor-neutral, computable clinical data. Better Platform is an openEHR-compliant clinical data repository (CDR) and operational data repository that exposes the openEHR ITS-REST API together with AQL (Archetype Query Language) for querying stored compositions. Better Studio is the low-code environment used to build clinical forms, AQL queries, JavaScript views, ETL pipelines and data connectors against that platform; Better Meds is an ePMA for medication management; Better Design System and the Better Marketplace supply reusable widgets, forms and bundles. Better publishes its core openEHR reference libraries — web-template, ehr-common and the openEHR REST conformance test suite — as Apache-2.0 open source on GitHub and Maven Central, but the Better Platform API reference itself is served behind Microsoft Entra single sign-on.
+
+**Areas:** Company · Health · Healthcare · openEHR · Electronic Health Records · Clinical Data · Interoperability · FHIR · Medication Management · Digital Health · Low-Code · AQL
+
+## Better on APIs.io
+
+Everything profiled for Better is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/better-care/](https://apis.io/providers/better-care/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Better Platform openEHR REST API](https://apis.io/apis/better-care/better-platform-openehr-rest-api/) — Better Platform's clinical data repository exposes the openEHR ITS-REST API (EHR, COMPOSITION, DIRECTORY, CONTRIBUTION, TEMPLATE/definition and QUERY/AQL…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Better Care Authentication](https://apis.io/security/better-care/better-care-authentication/)
+- [Better Care Domain Security](https://apis.io/security/better-care/better-care-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Better Care Plans Pricing](https://apis.io/plans/better-care/better-care-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Better Care Rate Limits](https://apis.io/rate-limits/better-care/better-care-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.better.care/)
+- [Documentation](https://docs.better.care/studio/)
+- [Getting started](https://docs.better.care/studio/start-here/studio-setup)
+- [Sign up](https://studio.better.care/registration)
+- [Support](https://docs.better.care/studio/welcome/resources-and-community)
+- [Changelog](https://docs.better.care/studio/release-notes/release-3-17)
+- [Blog](https://www.better.care/category/blog-en/)
+- [Compliance](https://www.better.care/certifications/)
+- [Privacy policy](https://www.better.care/privacy-cookies/)
+- [GitHub](https://github.com/better-care)
+
+## API Evangelist rating
+
+**Kin Score 21.3** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 64.3 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 45.2 |
+| Access clarity | 0.0 |
+
+**Agent readiness 7.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | yes |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 13.3** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/better-care/](https://apis.io/providers/better-care/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Better: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/better-care/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
